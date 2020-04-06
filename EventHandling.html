@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie-edge">
+<title>Event VueJs</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Count: {{counter}}</h1>
+        <button v-on:click="handleClick"> Click Me</button>
+    <br><br>
+    <form action="./sever.php" v-on:submit.prevent="handleSubmitForm">
+        <label >Nhap FirstName: </label>
+        <input type="text" name="firstName"><br><br>
+        <label>Nhap email: </label>
+        <input type="email" name="email"><br><br>
+        <input type="submit" value="Dang Nhap">
+    </form>
+    </div>
+    <script>
+        var app=new Vue({
+            el: '#app',
+            data:{
+                counter: 0
+            },
+            methods:{
+                handleClick(){
+                    this.counter++;
+                },
+                handleSubmitForm(e){
+                    console.log(e);
+                }
+            }
+        })
+        </script>
+</body>
+</html>
